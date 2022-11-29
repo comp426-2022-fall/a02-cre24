@@ -15,6 +15,26 @@ var longitude;
 var latitude;
 
 //Implement timezone and coordinates here
+if (arg.n) {
+	latitude = arg.n;
+}
+
+if (arg.e) {
+	longitude = arg.e;
+}
+
+if (arg.s) {
+	latitude = arg.s * -1;
+}
+
+if (arg.w) {
+	longitude = arg.w * -1
+}
+
+if (arg.t) {
+	timezone = arg.t;
+}
+timezone.replace("/", "%2");
 
 // Request to api
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+latitude+'&longitude='+longitude+'&daily=precipitation_hours&timezone='+timezone);

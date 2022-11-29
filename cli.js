@@ -4,7 +4,6 @@ import minimist from "minimist";
 import moment from "moment-timezone";
 import fetch from "node-fetch";
 
-
 const arg = minimist(process.argv.slice(2));
 
 //Check for galosh.js help test
@@ -40,6 +39,7 @@ if (arg.w) {
 if (arg.t) {
 	timezone = arg.t;
 }
+
 timezone.replace("/", "%2");
 
 // Check for out of range coordinates

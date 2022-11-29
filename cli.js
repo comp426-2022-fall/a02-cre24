@@ -55,28 +55,16 @@ if (arg.j) {
 const day = arg.d;
 
 // Conditional determing what to output based on the data on the day
-if (day == 0) {
-    if (data.daily.precipitation_hours[day] == 0) {
-		console.log('You will not need your galoshes')
-	} else {
-		console.log('You might need your galoshes')
-	}
-    console.log(" today.")
-    process.exit(0)
-} else if (day > 1) {
-    if (data.daily.precipitation_hours[day] == 0) {
-		console.log('You will not need your galoshes')
-	} else {
-		console.log('You might need your galoshes')
-	}
-    console.log(" in " + day + " days.")
-    process.exit(0)
+if (data.daily.precipitation_hours[day] == 0) {
+    console.log('You will not need your galoshes')
 } else {
-    if (data.daily.precipitation_hours[day] == 0) {
-		console.log('You will not need your galoshes')
-	} else {
 		console.log('You might need your galoshes')
-	}
-    console.log(" tomorrow.")
-    process.exit(0)
+}
+
+if (day = 0){
+	console.log(" today.")
+} else if (day > 1) {
+	console.log(" in " + day + " days.")
+} else {
+	console.log(" tomorrow.")
 }

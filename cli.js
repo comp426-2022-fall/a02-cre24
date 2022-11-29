@@ -7,6 +7,12 @@ import fetch from "node-fetch";
 
 const arg = minimist(process.argv.slice(2));
 
+//Check for galosh.js help test
+if (arg.h) {
+	console.log("Usage: galosh.js")
+	process.exit(0);
+}
+
 // Obtain Timezone
 var timezone = moment.tz.guess()
 

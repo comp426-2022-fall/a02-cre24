@@ -8,7 +8,7 @@ import fetch from "node-fetch";
 const arg = minimist(process.argv.slice(2));
 
 // Obtain Timezone
-const timezone = moment.tz.guess()
+var timezone = moment.tz.guess()
 
 //Initialize longitude and latitude
 var longitude;
@@ -36,6 +36,9 @@ if (arg.t) {
 }
 timezone.replace("/", "%2");
 
+// Check for out of range coordinates later
+
+
 // Request to api
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+latitude+'&longitude='+longitude+'&daily=precipitation_hours&timezone='+timezone);
 
@@ -43,17 +46,13 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+
 const data = await response.json();
 
 // Manipulate data from json
-if (process.argv.indexOf('-j') > -1) {
+if (arg.j) {
 	console.log(data);
 	process.exit(0);
 }
 
 // Code relating to the day variable
-const day = 1;
-
-if (process.argv.indexOf('-d') > -1) {
-	day = argv[process.argv.indexOf('-d') - 1];
-}
+const day = arg.d;
 
 // Conditional determing what to output based on the data on the day
 if (day == 0) {

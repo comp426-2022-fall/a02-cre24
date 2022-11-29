@@ -7,7 +7,7 @@ import fetch from "node-fetch";
 const argv = process.argv.slice(2);
 
 // Obtain Timezone
-const timezone = moment.tz.guest()
+const timezone = moment.tz.guess()
 if (process.argv.indexOf('-z') > -1) {
     timezone = argv[process.argv.indexOf('-z') - 1];
 }

@@ -37,11 +37,11 @@ if (arg.t) {
 timezone.replace("/", "%2");
 
 // Check for out of range coordinates
-if(!longitude) {
-	console.log("Longitude must be in range");
-	process.exit(0);
-} else if (!latitude) {
+if(!latitude) {
 	console.log("Latitude must be in range");
+	process.exit(0);
+} else if (!longitude) {
+	console.log("Longitude must be in range");
 	process.exit(0);
 }
 

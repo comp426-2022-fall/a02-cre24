@@ -36,7 +36,11 @@ if (arg.t) {
 }
 timezone.replace("/", "%2");
 
-// Check for out of range coordinates later
+// Check for out of range coordinates
+if(!longitude) {
+	console.log("Longitude must be in range");
+	process.exit(0)
+}
 
 
 // Request to api

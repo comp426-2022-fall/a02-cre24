@@ -40,7 +40,7 @@ timezone.replace("/", "%2");
 
 
 // Request to api
-const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+latitude+'&longitude='+longitude+'&daily=precipitation_hours&timezone='+timezone);
+const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+ String(latitude) + '&longitude='+ String(longitude) + '&daily=precipitation_hours&timezone='+ timezone);
 
 // Data inputed from request
 const data = await response.json();
